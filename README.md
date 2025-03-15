@@ -1,1 +1,1 @@
-This project is for learning NestJS backend onboarding.
+This project is for learning about NestJS backend onboarding.
