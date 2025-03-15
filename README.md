@@ -1,1 +1,1 @@
-This project aims to implement solution using NestJs. focusing on backend onboarding 
+This project is for learning NestJS backend onboarding.
