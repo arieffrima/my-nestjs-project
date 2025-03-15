@@ -1,7 +1,6 @@
 # Use an official Node.js runtime as a parent image
 FROM node:20-slim AS base
 
-
 # Set the working directory
 WORKDIR /usr/src/app
 
@@ -18,14 +17,14 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Create a smaller production image
-FROM node:18-slim
+FROM node:20-slim
 
 # Set the working directory
 WORKDIR /usr/src/app
 
 # Copy only the built app and node_modules from the previous image
-COPY --from=build /usr/src/app/dist /usr/src/app/dist
-COPY --from=build /usr/src/app/node_modules /usr/src/app/node_modules
+COPY --from=base /usr/src/app/dist /usr/src/app/dist
+COPY --from=base /usr/src/app/node_modules /usr/src/app/node_modules
 
 # Expose the app port
 EXPOSE 3000
